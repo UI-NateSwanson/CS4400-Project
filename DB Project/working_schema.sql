@@ -1,9 +1,7 @@
-USE db_test;
-
 DROP TABLE IF EXISTS drivers;
 -- table for Drivers registered in lyft database
 create table drivers (
-	driver_id INT NOT NULL,
+	driver_id INT NOT NULL AUTO_INCREMENT,
 	fname VARCHAR(32),
 	lname VARCHAR(32),
 	address VARCHAR(32),
@@ -26,7 +24,7 @@ create table cars (
 DROP TABLE IF EXISTS customers;
 -- Table for storing customers using lyft
 create table customers (
-	c_id INT NOT NULL,
+	c_id INT NOT NULL AUTO_INCREMENT,
 	c_number VARCHAR(12),
 	c_fname VARCHAR(32),
 	c_lname VARCHAR(32),

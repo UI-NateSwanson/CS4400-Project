@@ -1,9 +1,35 @@
-USE db_ksompallae;
+<html>
+<head>
+    <link rel="stylesheet" href="main.css">
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
 
-DROP TABLE IF EXISTS drivers;
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+</head>
+<body>
+<div id="main">
+<span style="font-size:30px;cursor:pointer; color: #white" onclick="openNav()">&#9776;</span>
+</div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="index.html">Home</a>
+    <a href="group.php">Group Members</a>
+    <a href="description.php">Description</a>
+    <a href="#">Our Schema</a>
+</div>
+<div id="schema">
+    <pre>
+        DROP TABLE IF EXISTS drivers;
 -- table for Drivers registered in lyft database
 create table drivers (
-	driver_id INT NOT NULL,
+	driver_id INT NOT NULL AUTO_INCREMENT,
 	fname VARCHAR(32),
 	lname VARCHAR(32),
 	address VARCHAR(32),
@@ -26,7 +52,7 @@ create table cars (
 DROP TABLE IF EXISTS customers;
 -- Table for storing customers using lyft
 create table customers (
-	c_id INT NOT NULL,
+	c_id INT NOT NULL AUTO_INCREMENT,
 	c_number VARCHAR(12),
 	c_fname VARCHAR(32),
 	c_lname VARCHAR(32),
@@ -53,4 +79,10 @@ INSERT INTO cars (car_id,car_name,car_type,car_model,car_licencenumber) VALUES (
 (4,"Honda","sedan", "accord","msn 523"), (5,"Honda","suv", "odyssy","snp 321");
 
 INSERT INTO owns VALUES (4589525,"wxn 768"), (4589525,"xnw 253"),(5781015,"msn 523"), (195105,"snp 321"), (165105,"CPN 487");
+        </pre>
+</div>
 
+</body>
+
+
+</html>
