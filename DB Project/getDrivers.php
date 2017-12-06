@@ -2,7 +2,7 @@
 function connectToServer(){
     $host = "localhost";
     $username = "root";
-    $password = "ripersnifle7&";
+    $password = "cs4400";
     $dbname = "lyft";
 
     $connection = new mysqli($host, $username, $password, $dbname);

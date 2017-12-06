@@ -53,7 +53,6 @@ DROP TABLE IF EXISTS customers;
 -- Table for storing customers using lyft
 create table customers (
 	c_id INT NOT NULL AUTO_INCREMENT,
-	c_number VARCHAR(12),
 	c_fname VARCHAR(32),
 	c_lname VARCHAR(32),
 	c_contactnumber VARCHAR(32),
