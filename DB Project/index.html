@@ -27,23 +27,23 @@
                 }
             });
         }
-//        function addCustomer(){
-//            $.ajax({
-//                type: 'POST',
-//                data: {
-//                    c_fname:document.getElementById("cust_form").elements["c_fname"].value,
-//                    c_lname:document.getElementById("cust_form").elements["c_lname"].value,
-//                    c_contactnumber:document.getElementById("cust_form").elements["c_contactnumber"].value
-//                },
-//                url: 'addCustomer.php',
-//                success: function(data){
-//                    alert(data);
-//                },
-//                error:function(errorThrown) {
-//                    console.log(errorThrown);
-//                }
-//            });
-//        }
+       function addCustomer(){
+           $.ajax({
+               type: 'POST',
+               data: {
+                   c_fname:document.getElementById("cust_form").elements["c_fname"].value,
+                   c_lname:document.getElementById("cust_form").elements["c_lname"].value,
+                   c_contactnumber:document.getElementById("cust_form").elements["c_contactnumber"].value
+               },
+               url: 'addCustomer.php',
+               success: function(data){
+                   alert(data);
+               },
+               error:function(errorThrown) {
+                   console.log(errorThrown);
+               }
+           });
+       }
     </script>
 </head>
 
