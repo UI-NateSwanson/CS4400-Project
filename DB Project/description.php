@@ -21,7 +21,7 @@
 </div>
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="index.html">Home</a>
+    <a href="index.php">Home</a>
     <a href="group.php">Group Members</a>
     <a href="#">Description</a>
     <a href="schema.php">Our Schema</a>

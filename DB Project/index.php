@@ -1,3 +1,8 @@
+<?php
+    include "getCities.php";
+    $cities = getCities();
+?>
+
 <html>
 <meta charset="utf-8"/>
 <head>
@@ -27,23 +32,20 @@
                 }
             });
         }
-       function addCustomer(){
-           $.ajax({
-               type: 'POST',
-               data: {
-                   c_fname:document.getElementById("cust_form").elements["c_fname"].value,
-                   c_lname:document.getElementById("cust_form").elements["c_lname"].value,
-                   c_contactnumber:document.getElementById("cust_form").elements["c_contactnumber"].value
-               },
-               url: 'addCustomer.php',
-               success: function(data){
-                   alert(data);
-               },
-               error:function(errorThrown) {
-                   console.log(errorThrown);
-               }
-           });
-       }
+        function getDetails(){
+            $.ajax({
+                type: 'POST',
+                data: {},
+                url: 'getCompleteOrderDetails.php',
+                success: function (data) {
+                    $("#orderDetails").html(data);
+                },
+                error: function(errorThrown){
+                    console.log(errorThrown);
+                }
+            });
+        }
+
     </script>
 </head>
 
@@ -69,11 +71,17 @@
         <form id="cust_form" action="addCustomer.php" method="post">
             <p>First Name: <input name="c_fname" required></p>
             <p>Last Name: <input name="c_lname" required></p>
-            <p>Phone Number: <input name="c_contactnumber" required><br></p>
+            <p>Phone Number: <input name="c_contactnumber" required></p>
+            <input type="radio" name="city_name" value="<?php echo $cities[0]?>"><?php echo $cities[0]?>
+            <input type="radio" name="city_name" value="<?php echo $cities[1]?>"><?php echo $cities[1]?>
+            <input type="radio" name="city_name" value="<?php echo $cities[2]?>"><?php echo $cities[2]?><br><br>
             <button name="Add Customer" type="submit">Add Customer</button>
         </form>
         <!--<button onclick="addCustomer()">Add Customer</button>-->
-        <div id="customer"></div>
+    </div>
+    <div id="getDetails">
+        <button onclick="getDetails()">Get All Order Details</button>
+        <div id="orderDetails"></div>
     </div>
 </div>
 </body>

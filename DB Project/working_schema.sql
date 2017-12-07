@@ -14,9 +14,9 @@ create table drivers (
 	lname VARCHAR(32),
 	address VARCHAR(32),
 	contactnumber VARCHAR(32),
-	driver_city INT(100),
+	city_id INT(100),
 	PRIMARY KEY(driver_id),
-	FOREIGN KEY (driver_city) REFERENCES cities(city_id)
+	FOREIGN KEY (city_id) REFERENCES cities(city_id)
 )ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS cars;
@@ -37,9 +37,10 @@ create table customers (
 	c_id INT(100) NOT NULL AUTO_INCREMENT,
 	c_fname VARCHAR(32),
 	c_lname VARCHAR(32),
-	c_city INT(100),
+	c_contactnumber VARCHAR(32),
+	city_id INT(100),
 	PRIMARY KEY (c_id),
-	FOREIGN KEY (c_city) REFERENCES cities(city_id)
+	FOREIGN KEY (city_id) REFERENCES cities(city_id)
 )ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS owns;
@@ -58,7 +59,8 @@ create table orders (
 	driver INT(100),
 	customer INT(100),
 	city INT(100),
-	PRIMARY KEY (driver, customer, city),
+	order_id INT(100) NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (order_id, driver, customer, city),
 	FOREIGN KEY (driver) REFERENCES drivers(driver_id),
 	FOREIGN KEY (customer) REFERENCES customers(c_id),
 	FOREIGN KEY (city) REFERENCES cities(city_id)
@@ -66,15 +68,14 @@ create table orders (
 
 -- next, add some simple sample data
 
-INSERT INTO cities (city_id, city_name) VALUES (1, "Iowa City"), (2, "Coralville"), (3, "Cedar Rapids");
+INSERT INTO cities (city_id, city_name) VALUES (1, "Iowa City"), (2, "Coralville"), (3, "Cedar Rapids"), (4, "Davenport");
 
-INSERT INTO drivers (driver_id,fname,lname,address,contactnumber, driver_city) VALUES (1,"Andrew","Marburg","linn street","319-123-4567", 1), 
-(2, "Nate","Swanson","Iowa ave","319-132-5467", 3),(3,"Edision","Lee","Capitol st", "319-143-6457", 2),
-(4,"krishna","veni","Capitol st", "319-134-4657", 1);
+INSERT INTO drivers (driver_id,fname,lname,address,contactnumber, city_id) VALUES (1,"Andrew","Marburg","linn street","319-123-4567", 4),
+	(2, "Nate","Swanson","Iowa ave","319-132-5467", 3),(3,"Edision","Lee","Capitol st", "319-143-6457", 2),
+	(4,"krishna","veni","Capitol st", "319-134-4657", 1);
 
 INSERT INTO cars (car_id,car_name,car_type,car_model,car_licencenumber) VALUES (1,"Toyota","SUV","sienna", "CPN 487"),
-(2, "Audi","luxury", "A6 quatro", "wxn 768"),(3,"Audi","luxury", "A6 quatro","xnw 253"),
-(4,"Honda","sedan", "accord","msn 523"), (5,"Honda","suv", "odyssy","snp 321");
+	(2, "Infiniti","luxury", "QX80", "wxn 768"),(3,"Audi","luxury", "A6 quatro","xnw 253"),
+	(4,"Honda","sedan", "accord","msn 523"), (5,"Honda","SUV", "odyssy","snp 321");
 
 INSERT INTO owns VALUES (1, 2), (1, 3),(2, 4), (3, 5), (4, 1);
-
