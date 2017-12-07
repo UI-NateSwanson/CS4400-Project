@@ -74,7 +74,8 @@
             <p>Phone Number: <input name="c_contactnumber" required></p>
             <input type="radio" name="city_name" value="<?php echo $cities[0]?>"><?php echo $cities[0]?>
             <input type="radio" name="city_name" value="<?php echo $cities[1]?>"><?php echo $cities[1]?>
-            <input type="radio" name="city_name" value="<?php echo $cities[2]?>"><?php echo $cities[2]?><br><br>
+            <input type="radio" name="city_name" value="<?php echo $cities[2]?>"><?php echo $cities[2]?>
+            <input type="radio" name="city_name" value="<?php echo $cities[3]?>"><?php echo $cities[3]?><br><br>
             <button name="Add Customer" type="submit">Add Customer</button>
         </form>
         <!--<button onclick="addCustomer()">Add Customer</button>-->
