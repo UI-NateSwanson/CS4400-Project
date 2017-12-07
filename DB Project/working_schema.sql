@@ -76,6 +76,6 @@ INSERT INTO drivers (driver_id,fname,lname,address,contactnumber, city_id) VALUE
 
 INSERT INTO cars (car_id,car_name,car_type,car_model,car_licencenumber) VALUES (1,"Toyota","SUV","sienna", "CPN 487"),
 	(2, "Infiniti","luxury", "QX80", "wxn 768"),(3,"Audi","luxury", "A6 quatro","xnw 253"),
-	(4,"Honda","sedan", "accord","msn 523"), (5,"Honda","SUV", "odyssy","snp 321");
+	(4,"Honda","sedan", "accord","msn 523");
 
-INSERT INTO owns VALUES (1, 2), (1, 3),(2, 4), (3, 5), (4, 1);
+INSERT INTO owns VALUES (1, 2), (3, 3),(2, 4), (4, 1);
