@@ -1,0 +1,10 @@
+Gets Driver Info (getDrivers.php)
+    SELECT a.fname, b.car_name, b.car_type, b.car_model, b.car_licencenumber FROM drivers a, cars b, owns c WHERE c.driver = a.driver_id AND c.car = b.car_id;
+
+Checks for drivers in the customer's city, adds the customer, and adds a new order (addCustomer.php)
+    City Check: SELECT b.driver_id, b.city_id FROM cities a, drivers b WHERE a.city_name='$customerCity' AND a.city_id = b.city_id;
+    Add Customer: INSERT INTO customers(c_fname, c_lname, c_contactnumber, city_id) VALUES('$c_fname', '$c_lname', '$c_contactnumber', '$city_id')
+    Add Order: INSERT INTO orders(driver, customer, city) VALUES('$availableDriver', LAST_INSERT_ID(), '$city_id')
+
+Gets Order Details aswell as driver, customer, and car details for a complete order summary (getCompleteOrderDetails.php)
+    SELECT a.order_id, b.c_fname, b.c_lname, b.c_contactnumber, c.fname, d.car_name, d.car_model, e.city_name FROM orders a, customers b, drivers c, cars d, cities e, owns f WHERE a.customer = b.c_id AND a.driver = c.driver_id AND a.city = e.city_id AND c.driver_id = f.driver AND d.car_id = f.car ;

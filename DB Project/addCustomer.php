@@ -21,7 +21,7 @@ function addCustomer(){
     $c_lname = $_POST["c_lname"];
     $c_contactnumber = $_POST["c_contactnumber"];
 
-    $checkCity = "SELECT b.driver_id, b.city_id FROM cities a, drivers b WHERE a.city_name='$customerCity' AND a.city_id = b.city_id ";
+    $checkCity = "SELECT b.driver_id, b.city_id FROM cities a, drivers b WHERE a.city_name='$customerCity' AND a.city_id = b.city_id";
 
     $result = $connection->query($checkCity);
     while($row = mysqli_fetch_assoc($result)){
